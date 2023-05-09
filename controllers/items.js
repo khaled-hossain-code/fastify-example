@@ -2,17 +2,17 @@ const _ = require("lodash");
 const { v4: uuidv4 } = require("uuid");
 let items = require("../data/items");
 
-const getItems = async (request, reply) => {
+const getAllItem = async (request, reply) => {
   return items;
 };
 
-const getSingleItem = async (request, reply) => {
+const getItem = async (request, reply) => {
   const { item_id } = request.params;
 
   return _.find(items, { id: item_id });
 };
 
-const postSingleItem = async (request, reply) => {
+const postItem = async (request, reply) => {
   const { name } = request.body;
   const newItem = {
     id: uuidv4(),
@@ -22,8 +22,20 @@ const postSingleItem = async (request, reply) => {
   return reply.code(201).send(newItem);
 };
 
+const deleteItem = async (request, reply) => {
+  const { item_id } = request.params;
+  const newItems = items.filter((item) => {
+    item.id !== item_id;
+  });
+
+  reply.send({
+    message: "item is deleted",
+  });
+};
+
 module.exports = {
-  getItems,
-  getSingleItem,
-  postSingleItem,
+  getAllItem,
+  getItem,
+  postItem,
+  deleteItem,
 };

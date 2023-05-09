@@ -10,6 +10,25 @@ const singleItemSchema = {
   },
 };
 
+const createItemSchema = {
+  type: "object",
+  required: ["name"],
+  properties: {
+    name: {
+      type: "string",
+    },
+  },
+};
+
+const deleteItemSchema = {
+  type: "object",
+  properties: {
+    message: {
+      type: "string",
+    },
+  },
+};
+
 const itemsSchema = {
   type: "array",
   items: singleItemSchema,
@@ -18,4 +37,6 @@ const itemsSchema = {
 module.exports = {
   itemsSchema,
   singleItemSchema,
+  createItemSchema,
+  deleteItemSchema,
 };

@@ -1,52 +1,60 @@
-const { itemsSchema, singleItemSchema } = require("../model/schema/items");
 const {
-  getItems,
-  getSingleItem,
-  postSingleItem,
+  itemsSchema,
+  singleItemSchema,
+  createItemSchema,
+  deleteItemSchema,
+} = require("../model/schema/items");
+const {
+  getAllItem,
+  getItem,
+  postItem,
+  deleteItem,
 } = require("../controllers/items");
 
 function itemsRoutes(fastify, Option, done) {
-  fastify.get("/items", getItemsOpts);
-  fastify.post("/items", postSingleItemOpts);
-  fastify.get("/items/:item_id", getSingleItemOpts);
+  fastify.get("/items", getAllItemOpts);
+  fastify.post("/items", postItemOpts);
+  fastify.get("/items/:item_id", getItemOpts);
+  fastify.delete("/items/:item_id", deleteItemOpts);
 
   done();
 }
 
-const getItemsOpts = {
+const getAllItemOpts = {
   schema: {
     response: {
       200: itemsSchema,
     },
   },
-  handler: getItems,
+  handler: getAllItem,
 };
 
-const getSingleItemOpts = {
+const getItemOpts = {
   schema: {
     response: {
       200: singleItemSchema,
     },
   },
-  handler: getSingleItem,
+  handler: getItem,
 };
 
-const postSingleItemOpts = {
+const postItemOpts = {
   schema: {
-    body: {
-      type: "object",
-      required: ["name"],
-      properties: {
-        name: {
-          type: "string",
-        },
-      },
-    },
+    body: createItemSchema,
     response: {
       201: singleItemSchema,
     },
   },
-  handler: postSingleItem,
+  handler: postItem,
+};
+
+const deleteItemOpts = {
+  schema: {
+    response: {
+      200: deleteItemSchema,
+    },
+  },
+  handler: deleteItem,
 };
 
 module.exports = itemsRoutes;
