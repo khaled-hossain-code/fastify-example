@@ -21,6 +21,7 @@
   "dependencies": {
     "fastify": "^4.17.0",
     "fastify-swagger": "^5.2.0",
+    "lodash": "^4.17.21",
     "nodemon": "^2.0.22",
     "uuid": "^9.0.0"
   }
