@@ -1,15 +1,16 @@
 const _ = require("lodash");
 const { v4: uuidv4 } = require("uuid");
-let items = require("../data/items");
+const ItemModel = require("../model/itemModel");
+const itemObj = new ItemModel();
 
 const getAllItem = async (request, reply) => {
-  return items;
+  return itemObj.data;
 };
 
 const getItem = async (request, reply) => {
   const { item_id } = request.params;
 
-  return _.find(items, { id: item_id });
+  return _.find(itemObj.data, { id: item_id });
 };
 
 const postItem = async (request, reply) => {
@@ -18,15 +19,16 @@ const postItem = async (request, reply) => {
     id: uuidv4(),
     name,
   };
-  const newItems = [...items, newItem];
+
+  itemObj.add(newItem);
+
   return reply.code(201).send(newItem);
 };
 
 const deleteItem = async (request, reply) => {
   const { item_id } = request.params;
-  const newItems = items.filter((item) => {
-    item.id !== item_id;
-  });
+
+  itemObj.delete(item_id);
 
   reply.send({
     message: "item is deleted",
