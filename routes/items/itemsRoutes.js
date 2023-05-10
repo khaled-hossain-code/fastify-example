@@ -3,7 +3,7 @@ const {
   getItem,
   postItem,
   deleteItem,
-} = require("../controllers/items");
+} = require("../../controllers/items");
 
 function itemsRoutes(fastify, Option, done) {
   fastify.get("/items", {}, getAllItem);

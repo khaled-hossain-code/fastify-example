@@ -2,7 +2,7 @@ const fastify = require("fastify")({
   logger: true,
 });
 
-fastify.register(require("./routes/itemsRoutes"));
+fastify.register(require("./routes/items/itemsRoutes"));
 
 const start = async () => {
   try {
