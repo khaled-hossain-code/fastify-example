@@ -1,18 +1,19 @@
 const { getAllItemData, getItemData, postItemData } = require("../data/items");
 
-const getAllItem = async (request, reply) => {
+const getAllItem = async (req, reply) => {
   return getAllItemData;
 };
 
-const getItem = async (request, reply) => {
+const getItem = async (req, reply) => {
   return getItemData;
 };
 
-const postItem = async (request, reply) => {
+const postItem = async (req, reply) => {
   return reply.code(201).send(postItemData);
 };
 
-const deleteItem = async (request, reply) => {
+const deleteItem = async (req, reply) => {
+  const { item_id } = req.params;
   reply.send({
     message: "item is deleted",
   });

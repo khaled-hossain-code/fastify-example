@@ -5,13 +5,11 @@ const {
   deleteItem,
 } = require("../../controllers/items");
 
-function itemsRoutes(fastify, Option, done) {
-  fastify.get("/items", {}, getAllItem);
-  fastify.post("/items", {}, postItem);
-  fastify.get("/items/:item_id", {}, getItem);
-  fastify.delete("/items/:item_id", {}, deleteItem);
-
-  done();
+async function itemsRoutes(fastify, Option) {
+  fastify.get("/", {}, getAllItem);
+  fastify.post("/", {}, postItem);
+  fastify.get("/:item_id", {}, getItem);
+  fastify.delete("/:item_id", {}, deleteItem);
 }
 
 module.exports = itemsRoutes;

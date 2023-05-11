@@ -1,0 +1,70 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "items",
+    "dateExported": "2023-05-11T04:33:52.687Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "bbad7693-f8f5-4a4b-9485-cdebb779aa0e",
+            "colId": "67cae931-2379-4b34-8c37-5d025433e72b",
+            "containerId": "",
+            "name": "http://localhost:4000/items",
+            "url": "http://localhost:{{PORT}}/items",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2023-05-11T04:18:59.332Z",
+            "modified": "2023-05-11T04:33:29.731Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "bd83af12-af5a-4bc9-b565-03bb3851ddb6",
+            "colId": "67cae931-2379-4b34-8c37-5d025433e72b",
+            "containerId": "",
+            "name": "http://localhost:4000/items/{item_id}",
+            "url": "http://localhost:4000/items/2 ",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2023-05-11T04:21:42.591Z",
+            "modified": "2023-05-11T04:21:42.591Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "d9de48e7-915f-4eff-bb4a-907288dbacab",
+            "colId": "67cae931-2379-4b34-8c37-5d025433e72b",
+            "containerId": "",
+            "name": "http://localhost:4000/items",
+            "url": "http://localhost:4000/items",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2023-05-11T04:23:30.168Z",
+            "modified": "2023-05-11T04:23:30.169Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"New Item\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "8852f0b2-5a35-43c0-9168-825ccb6871be",
+            "colId": "67cae931-2379-4b34-8c37-5d025433e72b",
+            "containerId": "",
+            "name": "http://localhost:4000/items/{item_id}",
+            "url": "http://localhost:4000/items/2",
+            "method": "DELETE",
+            "sortNum": 40000,
+            "created": "2023-05-11T04:24:12.770Z",
+            "modified": "2023-05-11T04:24:12.770Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        }
+    ]
+}
